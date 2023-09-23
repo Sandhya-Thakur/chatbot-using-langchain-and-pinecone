@@ -33,32 +33,7 @@ export default function Home() {
       setLoading(false);
     }
   }
-  const handleFileUpload = async (event) => {
-    const selectedFile = event.target.files[0]; // Get the selected file
 
-    if (selectedFile) {
-      const formData = new FormData();
-      formData.append("file", selectedFile); // Append the file to the FormData object
-
-      try {
-        const response = await fetch("/api/upload", {
-          method: "POST",
-          body: formData,
-        });
-
-        if (response.ok) {
-          // File upload was successful
-          console.log("File uploaded successfully.");
-          // You can handle the server's response here
-        } else {
-          // File upload failed
-          console.error("File upload failed.");
-        }
-      } catch (error) {
-        console.error("Error uploading file:", error);
-      }
-    }
-  };
 
   return (
     <main className="flex flex-col items-center justify-between p-24">

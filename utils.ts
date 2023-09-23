@@ -135,6 +135,7 @@ export const queryPineconeVectorStoreAndQueryLLM = async (
     const result = await chain.call({
       input_documents: [new Document({ pageContent: concatenatedPageContent })],
       question: question,
+      max_tokens: 100, // Set this to a value that fits within the model's limit
     });
     // 10. Log the answer
     console.log(`Answer: ${result.text}`);
